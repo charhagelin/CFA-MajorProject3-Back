@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <form action="/" methode="post">
+      <input type="text" name="food_item_name" placeholder="Name of Food Item">
+      <input type="number" name="food_item_price" min="0" placeholder="Price of Food Item">
+      <select name="food_item_unit">
+          <option value="1kg" selected>kg</option>
+          <option value="ea">ea</option>
+          <option value="gram">gram</option>
+          <option value="box">box</option>
+        </select>
+      <input type="submit" value="submit">
+      </form>
+
+      <ul>
+         <% foodItems.forEach(foodItem => { %>
+          <li> <%= foodItem.name %> <%= foodItem.price %> <%= foodItem.unit %> </li>
+        <% }) %>
+      </ul>
+
+  </body>
+</html>
