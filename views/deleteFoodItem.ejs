@@ -1,0 +1,11 @@
+<form action="/foodItem/<%= foodItem._id %>/delete" method="delete">
+  <input type="text" name="name" value= "<%= foodItem.name %>">
+  <input type="number" name="price" min="0" value= "<%= foodItem.price %>">
+  <select name="unit" value= "<%= foodItem.unit %>">
+      <option value="kg" selected>kg</option>
+      <option value="ea">ea</option>
+      <option value="gram">gram</option>
+      <option value="box">box</option>
+  </select>
+  <input type="submit" >
+  </form>
