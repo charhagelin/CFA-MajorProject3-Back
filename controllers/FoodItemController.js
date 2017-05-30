@@ -24,10 +24,14 @@ exports.postFoodItems = (req, res) => {
   const name = req.body.name;
   const price = req.body.price;
   const unit = req.body.unit;
+  const description = req.body.description;
+  // const img = req.body.img;
   let foodItem = new FoodItem();
   foodItem.name = name;
   foodItem.price = price;
   foodItem.unit = unit;
+  foodItem.description = description;
+  // foodItem.img = img;
   foodItem.save()
     .then(() => {
       res.redirect('/')

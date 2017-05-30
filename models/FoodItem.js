@@ -12,10 +12,17 @@ const foodItemSchema = new Schema ({
   price: {
     type: Number
   },
+  description: {
+    type: String,
+    trim: true
+  },
+  // img: {
+  //   data: Buffer, contentType: String
+  // },
   created_at: {
     type: Date,
     default: Date.now
-  }
+  },
 })
 
 const FoodItem = mongoose.model('FoodItem', foodItemSchema);

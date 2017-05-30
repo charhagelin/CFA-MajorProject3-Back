@@ -9,6 +9,7 @@
     <p>Welcome to <%= title %></p>
     <form action="/" method="post">
       <input type="text" name="name" placeholder="Name of Food Item" />
+      <textarea name="description" placeholder="Description of Food Item"></textarea>
       <input type="number" name="price" min="0" placeholder="Price of Food Item" />
       <select name="unit">
           <option value="kg" selected>kg</option>
@@ -16,15 +17,33 @@
           <option value="gram">gram</option>
           <option value="box">box</option>
         </select>
-      <!-- <input type="file" name="imgFile" > -->
-      <input type="submit" />
+        <!-- <input type="file" type="image" name="img"> -->
+
+      <input type="submit">
       </form>
 
-      <ul>
-         <% foodItems.forEach(foodItem => { %>
-          <li> <%= foodItem.name %> $<%= foodItem.price %> <%= foodItem.unit %> <a href="/foodItem/<%= foodItem._id %>/edit">Edit</a> <a href="/foodItem/<%= foodItem._id %>/delete">Delete</a></li>
-        <% }) %>
-      </ul>
+      <table>
+      <thead>
+          <th>Name</th>
+          <th>description</th>
+          <th>Price</th>
+          <th>Unit</th>
+      </thead>
+      <tbody>
+        <% foodItems.forEach(foodItem => { %>
+         <tr>
+          <td><%= foodItem.name %> </td>
+          <td><%= foodItem.description %> </td>
+          <td>$<%= foodItem.price %>  </td>
+          <td><%= foodItem.unit %> </td>
+          <td><a href="/foodItem/<%= foodItem._id %>/edit">Edit</a>|</td>
+          <td><a href="/foodItem/<%= foodItem._id %>/delete">Delete</a></td>
+
+      <% }) %>
+      </tr>
+      </tbody>
+  </table>
+
 
   </body>
 </html>

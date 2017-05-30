@@ -6,3 +6,34 @@ body {
 a {
   color: #00B7FF;
 }
+th {
+  letter-spacing: 2px;
+}
+
+td {
+  letter-spacing: 1px;
+}
+
+tbody td {
+  text-align: center;
+}
+
+
+tbody tr:nth-child(odd) {
+  background-color: #FFF;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #e7dede;
+}
+
+tbody tr {
+  background-image: url(noise.png);
+}
+
+table {
+  background-color: #FFF;
+}
+table td + td {
+  border-left:1px solid black;
+ }
