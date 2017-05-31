@@ -14,7 +14,7 @@ var app = express();
 
 
 //database called Dilaflel
-mongoose.connect('mongodb://dilafel:wltmdilafel@ds157621.mlab.com:57621/dilafel');
+mongoose.connect('mongodb://dilafel:wltmdilafel@ds157621.mlab.com:57621/dilafel')
 
 const { connection: db } = mongoose;
 
