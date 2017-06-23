@@ -6,7 +6,7 @@ const FoodItem = require('../models/FoodItem');
 const FoodItemController = require('../controllers/FoodItemController')
 
 router.get('/', FoodItemController.getFoodItems);
-router.post('/', FoodItemController.postFoodItems);
+router.post('/', FoodItemController.upload, FoodItemController.resize, FoodItemController.postFoodItems); 
 
 
 router.get('/api/v1/foodItems', FoodItemController.getApiFoodItems);
@@ -24,32 +24,6 @@ router.get('/foodItem/:id/delete', function(req, res){
 	});
 });
 
-var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, '.uploads')
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now() + '.jpg')
-  }
-});
-// 
-// var upload = multer({ storage: storage }).single('img');
-//
-//
-//
-// router.post('/', function (req, res) {
-//   upload(req, res, function (err) {
-//     if (err) {
-//       // An error occurred when uploading
-//       return
-//     }
-//     res.json({
-//       success: true,
-//       message: 'image uploaded'
-//     });
-//     // Everything went fine
-//   })
-// });
 
 
 module.exports = router;

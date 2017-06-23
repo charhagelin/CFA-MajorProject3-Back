@@ -7,7 +7,7 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
-    <form action="/" method="post">
+    <form action="/" method="post" enctype="multipart/form-data">
       <input type="text" name="name" placeholder="Name of Food Item" />
       <textarea name="description" placeholder="Description of Food Item"></textarea>
       <input type="number" name="price" min="0" placeholder="Price of Food Item" />
@@ -17,13 +17,14 @@
           <option value="gram">gram</option>
           <option value="box">box</option>
         </select>
-        <!-- <input type="file" type="image" name="img"> -->
+      <input type="file" name="photo" accept="image/jpeg, image/png" if FoodItem.photo img(src=`/uploads/${FoodItem.photo}`, alt=FoodItem.name width=200)/>
 
       <input type="submit">
       </form>
 
       <table>
       <thead>
+          <th>img</th>
           <th>Name</th>
           <th>description</th>
           <th>Price</th>
@@ -32,6 +33,7 @@
       <tbody>
         <% foodItems.forEach(foodItem => { %>
          <tr>
+           <td><img src="<%= foodItem.photo %>"/></td>
           <td><%= foodItem.name %> </td>
           <td><%= foodItem.description %> </td>
           <td>$<%= foodItem.price %>  </td>
